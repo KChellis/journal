@@ -1,24 +1,25 @@
 import './styles.css';
-import { Entry } from './journal'
+import { Entry } from './journal.js';
+import $ from 'jquery';
 
 $(document).ready(function(){
-  $("#journal-form").submit(function(e) {
-    e.prevent.default();
+  $("#journal-form").submit(function(event) {
+    event.preventDefault();
 
     var title = $("#title").val();
-    var body = $("#body").val();
+    var body = $("#post").val();
     var newEntry = new Entry (title, body);
 
     newEntry.countWords();
     newEntry.countVowels();
     newEntry.countConsonants();
     newEntry.countEight();
-    console.log(newEntry);
 
     $("#user-output").prepend('<div class="entry">' +
-        '<h2>' + title + '</h2>' +
-        '<p class="teaser">' + teaser + ', words: ' + newEntry.words +
-          ', vowels: ' + newEntry.vowels + ', consonants: ' + newEntry.consonants + '</p>' +
+        '<h3>' + title + '</h3>' +
+        '<p class="teaser"><strong>Words:</strong> ' + newEntry.words +
+          ', <strong>Vowels:</strong> ' + newEntry.vowels + ', <strong>Consonants:</strong> ' + newEntry.consonants + '<br>' +
+           newEntry.teaser + '...</p>' +
         '<p class="body">' + body + '</p>' +
       '</div>');
 
