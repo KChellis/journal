@@ -6,19 +6,23 @@
     <title>Journal</title>
   </head>
   <body>
-    <h1>My Virtual Journal</h1>
-    <h2>New Entry:</h2>
-    <form id="journal-form">
-      <label for="title">Title:</label>
-      <input id="title" type="text" class="form-control">
-      <label for="post">Body:</label>
-      <input id="post" type="text" class="form-control">
-      <button type="submit" name="button">Submit!</button>
-    </form>
-    <h2>Past Entries:</h2>
-    <div id="user-output">
+    <div class="container-fluid">
+      <h1>My Virtual Journal</h1>
+      <h2>New Entry:</h2>
+      <form id="journal-form">
+        <label for="title">Title:</label>
+        <input id="title" type="text" class="form-control">
+        <label for="post">Body:</label>
+        <textarea id="post" class="form-control" rows="6"></textarea>
+        <br>
+        <button class= "btn btn-info" type="submit" name="button">Submit!</button>
+      </form>
+      <br>
+      <h2>Past Entries:</h2>
+      <div id="user-output">
 
 
+      </div>
     </div>
   </body>
 </html>

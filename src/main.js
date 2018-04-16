@@ -1,6 +1,8 @@
 import './styles.css';
 import { Entry } from './journal.js';
 import $ from 'jquery';
+import 'bootstrap';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 $(document).ready(function(){
   $("#journal-form").submit(function(event) {
@@ -17,12 +19,14 @@ $(document).ready(function(){
 
     $("#user-output").prepend('<div class="entry">' +
         '<h3>' + title + '</h3>' +
-        '<p class="teaser"><strong>Words:</strong> ' + newEntry.words +
-          ', <strong>Vowels:</strong> ' + newEntry.vowels + ', <strong>Consonants:</strong> ' + newEntry.consonants + '<br>' +
-           newEntry.teaser + '...</p>' +
+        '<p><em>Words:</em> ' + newEntry.words +
+          ', <em>Vowels:</em> ' + newEntry.vowels + ', <em>Consonants:</em> ' + newEntry.consonants + '</p>' +
+           '<p class="teaser">' + newEntry.teaser + '...</p>' +
         '<p class="body">' + body + '</p>' +
       '</div>');
-
-
+    $(".entry").first().click(function() {
+      $(this).children(".teaser").toggle();
+      $(this).children(".body").slideToggle();
+    });
   });
 });
